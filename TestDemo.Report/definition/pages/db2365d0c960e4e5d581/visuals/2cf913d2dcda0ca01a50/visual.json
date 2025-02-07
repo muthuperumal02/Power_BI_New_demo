@@ -1,19 +1,38 @@
 {
   "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/1.4.0/schema.json",
-  "name": "4341881cc0253c15154d",
+  "name": "2cf913d2dcda0ca01a50",
   "position": {
-    "x": 6.2068965517241379,
-    "y": 72.709359605911331,
-    "z": 0,
-    "height": 148.07881773399015,
-    "width": 280.19704433497537,
-    "tabOrder": 0
+    "x": 0,
+    "y": 320.98522167487687,
+    "z": 1,
+    "height": 359.11330049261085,
+    "width": 602.06896551724139,
+    "tabOrder": 1
   },
   "visual": {
-    "visualType": "card",
+    "visualType": "pieChart",
     "query": {
       "queryState": {
-        "Values": {
+        "Category": {
+          "projections": [
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "FactFinance"
+                    }
+                  },
+                  "Property": "CustomerID"
+                }
+              },
+              "queryRef": "FactFinance.CustomerID",
+              "nativeQueryRef": "CustomerID",
+              "active": true
+            }
+          ]
+        },
+        "Y": {
           "projections": [
             {
               "field": {
@@ -25,14 +44,14 @@
                           "Entity": "FactFinance"
                         }
                       },
-                      "Property": "Fixed Costs, actual"
+                      "Property": "Sales Amount, actual"
                     }
                   },
                   "Function": 0
                 }
               },
-              "queryRef": "Sum(FactFinance.Fixed Costs, actual)",
-              "nativeQueryRef": "Sum of Fixed Costs, actual"
+              "queryRef": "Sum(FactFinance.Sales Amount, actual)",
+              "nativeQueryRef": "Sum of Sales Amount, actual"
             }
           ]
         }
@@ -49,7 +68,7 @@
                         "Entity": "FactFinance"
                       }
                     },
-                    "Property": "Fixed Costs, actual"
+                    "Property": "Sales Amount, actual"
                   }
                 },
                 "Function": 0
