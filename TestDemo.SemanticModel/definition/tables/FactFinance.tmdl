@@ -1,0 +1,133 @@
+table FactFinance
+	lineageTag: 9264fbea-ff79-433d-9be4-07c1a22f81fb
+
+	column CustomerID
+		dataType: int64
+		formatString: 0
+		lineageTag: 287df885-9cf0-46a0-b8c4-a20ba65184f4
+		summarizeBy: none
+		sourceColumn: CustomerID
+
+		annotation SummarizationSetBy = Automatic
+
+	column ProductID
+		dataType: int64
+		formatString: 0
+		lineageTag: 53c91e12-b381-4eda-b9c5-c9e3c2825646
+		summarizeBy: none
+		sourceColumn: ProductID
+
+		annotation SummarizationSetBy = Automatic
+
+	column Month
+		dataType: int64
+		formatString: 0
+		lineageTag: 8a5e8f72-7fa0-49f5-87fd-cd38c5abd13e
+		summarizeBy: sum
+		sourceColumn: Month
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Order Quantity, actual'
+		dataType: int64
+		formatString: 0
+		lineageTag: 445049db-72da-404c-b0ac-449860ca4526
+		summarizeBy: sum
+		sourceColumn: Order Quantity, actual
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Order Quantity, budget'
+		dataType: int64
+		formatString: 0
+		lineageTag: 5241d9b0-9522-420c-8bcd-681fb093f6f8
+		summarizeBy: sum
+		sourceColumn: Order Quantity, budget
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Sales Amount, actual'
+		dataType: int64
+		formatString: 0
+		lineageTag: 59692267-8013-4520-b03a-a3bea3cdd79c
+		summarizeBy: sum
+		sourceColumn: Sales Amount, actual
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Sales Amount, budget'
+		dataType: int64
+		formatString: 0
+		lineageTag: d7fd204e-4b24-4752-8980-3676ec596351
+		summarizeBy: sum
+		sourceColumn: Sales Amount, budget
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Total Product Cost, actual'
+		dataType: int64
+		formatString: 0
+		lineageTag: 09f846a6-5f92-4bdc-8b88-d93ff2eff3ba
+		summarizeBy: sum
+		sourceColumn: Total Product Cost, actual
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Total Product Cost, budget'
+		dataType: int64
+		formatString: 0
+		lineageTag: 57316818-37ef-4503-9672-c18d368bae38
+		summarizeBy: sum
+		sourceColumn: Total Product Cost, budget
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Fixed Costs, actual'
+		dataType: int64
+		formatString: 0
+		lineageTag: a0bdec21-94e9-429b-9450-74be518d55c4
+		summarizeBy: sum
+		sourceColumn: Fixed Costs, actual
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Fixed Costs, budget'
+		dataType: int64
+		formatString: 0
+		lineageTag: 32c43574-6c2a-47a9-b542-a0d1ac014096
+		summarizeBy: sum
+		sourceColumn: Fixed Costs, budget
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Margin, actual'
+		dataType: int64
+		formatString: 0
+		lineageTag: 427fb657-938b-4f9d-b3db-4ebc5290e1ce
+		summarizeBy: sum
+		sourceColumn: Margin, actual
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Margin, budget'
+		dataType: int64
+		formatString: 0
+		lineageTag: db005373-f7e4-43c1-bb12-afd04d586104
+		summarizeBy: sum
+		sourceColumn: Margin, budget
+
+		annotation SummarizationSetBy = Automatic
+
+	partition FactFinance = m
+		mode: import
+		source =
+				let
+				    Source = Excel.Workbook(File.Contents("C:\Users\perumalm\Documents\Github copilot\Git_Copilot_POC.xlsx"), null, true),
+				    FactFinance_Sheet = Source{[Item="FactFinance",Kind="Sheet"]}[Data],
+				    #"Promoted Headers" = Table.PromoteHeaders(FactFinance_Sheet, [PromoteAllScalars=true]),
+				    #"Changed Type" = Table.TransformColumnTypes(#"Promoted Headers",{{"CustomerID", Int64.Type}, {"ProductID", Int64.Type}, {"Month", Int64.Type}, {"Order Quantity, actual", Int64.Type}, {"Order Quantity, budget", Int64.Type}, {"Sales Amount, actual", Int64.Type}, {"Sales Amount, budget", Int64.Type}, {"Total Product Cost, actual", Int64.Type}, {"Total Product Cost, budget", Int64.Type}, {"Fixed Costs, actual", Int64.Type}, {"Fixed Costs, budget", Int64.Type}, {"Margin, actual", Int64.Type}, {"Margin, budget", Int64.Type}})
+				in
+				    #"Changed Type"
+
+	annotation PBI_ResultType = Table
+

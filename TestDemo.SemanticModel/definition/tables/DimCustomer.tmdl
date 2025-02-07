@@ -1,0 +1,65 @@
+table DimCustomer
+	lineageTag: e25ba237-9849-4bbb-9077-4d9feac36758
+
+	column CustomerID
+		dataType: int64
+		formatString: 0
+		lineageTag: 46631434-74da-4d72-a18c-99ddf3c47ed3
+		summarizeBy: none
+		sourceColumn: CustomerID
+
+		annotation SummarizationSetBy = Automatic
+
+	column Customer
+		dataType: string
+		lineageTag: 82e82824-a1a3-4529-b4a6-49c661a300fe
+		summarizeBy: none
+		sourceColumn: Customer
+
+		annotation SummarizationSetBy = Automatic
+
+	column CustomerGroup
+		dataType: string
+		lineageTag: f2b6d886-ec40-4712-a4a0-f8bab3e30b60
+		summarizeBy: none
+		sourceColumn: CustomerGroup
+
+		annotation SummarizationSetBy = Automatic
+
+	column State
+		dataType: string
+		lineageTag: 3330f36d-17b5-4776-8757-f1960799834e
+		summarizeBy: none
+		sourceColumn: State
+
+		annotation SummarizationSetBy = Automatic
+
+	column Region
+		dataType: string
+		lineageTag: 819697f1-7c5e-41b2-b922-1aa6544ca7a3
+		summarizeBy: none
+		sourceColumn: Region
+
+		annotation SummarizationSetBy = Automatic
+
+	column Country
+		dataType: string
+		lineageTag: 697a303a-55c0-4c62-b442-82f0d85e2e6f
+		summarizeBy: none
+		sourceColumn: Country
+
+		annotation SummarizationSetBy = Automatic
+
+	partition DimCustomer = m
+		mode: import
+		source =
+				let
+				    Source = Excel.Workbook(File.Contents("C:\Users\perumalm\Documents\Github copilot\Git_Copilot_POC.xlsx"), null, true),
+				    DimCustomer_Sheet = Source{[Item="DimCustomer",Kind="Sheet"]}[Data],
+				    #"Promoted Headers" = Table.PromoteHeaders(DimCustomer_Sheet, [PromoteAllScalars=true]),
+				    #"Changed Type" = Table.TransformColumnTypes(#"Promoted Headers",{{"CustomerID", Int64.Type}, {"Customer", type text}, {"CustomerGroup", type text}, {"State", type text}, {"Region", type text}, {"Country", type text}})
+				in
+				    #"Changed Type"
+
+	annotation PBI_ResultType = Table
+
