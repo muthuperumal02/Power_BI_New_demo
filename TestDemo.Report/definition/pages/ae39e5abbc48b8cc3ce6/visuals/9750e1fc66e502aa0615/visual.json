@@ -25,14 +25,14 @@
                           "Entity": "FactFinance"
                         }
                       },
-                      "Property": "Fixed Costs, actual"
+                      "Property": "Order Quantity, actual"
                     }
                   },
                   "Function": 0
                 }
               },
-              "queryRef": "Sum(FactFinance.Fixed Costs, actual)",
-              "nativeQueryRef": "Sum of Fixed Costs, actual"
+              "queryRef": "Sum(FactFinance.Order Quantity, actual)",
+              "nativeQueryRef": "Sum of Order Quantity, actual"
             }
           ]
         }
@@ -49,7 +49,7 @@
                         "Entity": "FactFinance"
                       }
                     },
-                    "Property": "Fixed Costs, actual"
+                    "Property": "Order Quantity, actual"
                   }
                 },
                 "Function": 0

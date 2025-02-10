@@ -1,13 +1,13 @@
 {
   "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/1.4.0/schema.json",
-  "name": "2cf913d2dcda0ca01a50",
+  "name": "cea9068d45a6d747edc8",
   "position": {
-    "x": 18.341542845511906,
-    "y": 163.40647262365152,
-    "z": 1,
-    "height": 541.90922043557907,
-    "width": 661.96295542438429,
-    "tabOrder": 1
+    "x": 33.348259719112562,
+    "y": 15.006716873600652,
+    "z": 0,
+    "height": 466.87563606757584,
+    "width": 536.90698147771218,
+    "tabOrder": 0
   },
   "visual": {
     "visualType": "pieChart",
@@ -20,14 +20,14 @@
                 "Column": {
                   "Expression": {
                     "SourceRef": {
-                      "Entity": "FactFinance"
+                      "Entity": "DimCustomer"
                     }
                   },
-                  "Property": "CustomerID"
+                  "Property": "Region"
                 }
               },
-              "queryRef": "FactFinance.CustomerID",
-              "nativeQueryRef": "CustomerID",
+              "queryRef": "DimCustomer.Region",
+              "nativeQueryRef": "Region",
               "active": true
             }
           ]
@@ -44,14 +44,14 @@
                           "Entity": "FactFinance"
                         }
                       },
-                      "Property": "Sales Amount, actual"
+                      "Property": "Fixed Costs, actual"
                     }
                   },
                   "Function": 0
                 }
               },
-              "queryRef": "Sum(FactFinance.Sales Amount, actual)",
-              "nativeQueryRef": "Sum of Sales Amount, actual"
+              "queryRef": "Sum(FactFinance.Fixed Costs, actual)",
+              "nativeQueryRef": "Sum of Fixed Costs, actual"
             }
           ]
         }
@@ -68,7 +68,7 @@
                         "Entity": "FactFinance"
                       }
                     },
-                    "Property": "Sales Amount, actual"
+                    "Property": "Fixed Costs, actual"
                   }
                 },
                 "Function": 0
