@@ -1,38 +1,19 @@
 {
   "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/1.4.0/schema.json",
-  "name": "ff8969607d089e0d00da",
+  "name": "ba33f08709d0d71bb05c",
   "position": {
-    "x": 671.42634450506614,
-    "y": 32.922837100545593,
+    "x": 501.58458244111353,
+    "y": 0,
     "z": 1000,
-    "height": 342.19797349961027,
-    "width": 608.57365549493375,
+    "height": 154.40399714489652,
+    "width": 263.12633832976445,
     "tabOrder": 1000
   },
   "visual": {
-    "visualType": "lineChart",
+    "visualType": "card",
     "query": {
       "queryState": {
-        "Category": {
-          "projections": [
-            {
-              "field": {
-                "Column": {
-                  "Expression": {
-                    "SourceRef": {
-                      "Entity": "FactFinance"
-                    }
-                  },
-                  "Property": "Order Quantity, actual"
-                }
-              },
-              "queryRef": "FactFinance.Order Quantity, actual",
-              "nativeQueryRef": "Order Quantity, actual",
-              "active": true
-            }
-          ]
-        },
-        "Y": {
+        "Values": {
           "projections": [
             {
               "field": {
@@ -44,14 +25,14 @@
                           "Entity": "FactFinance"
                         }
                       },
-                      "Property": "Month"
+                      "Property": "Order Quantity, actual"
                     }
                   },
                   "Function": 0
                 }
               },
-              "queryRef": "Sum(FactFinance.Month)",
-              "nativeQueryRef": "Sum of Month"
+              "queryRef": "Sum(FactFinance.Order Quantity, actual)",
+              "nativeQueryRef": "Sum of Order Quantity, actual"
             }
           ]
         }
@@ -68,7 +49,7 @@
                         "Entity": "FactFinance"
                       }
                     },
-                    "Property": "Month"
+                    "Property": "Order Quantity, actual"
                   }
                 },
                 "Function": 0
