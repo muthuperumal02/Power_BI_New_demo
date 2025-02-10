@@ -1,13 +1,13 @@
 {
   "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/1.4.0/schema.json",
-  "name": "db205a092265201a69cc",
+  "name": "f9dcd5286c8872de96a8",
   "position": {
-    "x": 17.496720745598893,
-    "y": 25.449775629962026,
-    "z": 0,
-    "height": 216.32309285467724,
-    "width": 418.33068691750083,
-    "tabOrder": 0
+    "x": 515.17574086836669,
+    "y": 378.44245348035838,
+    "z": 3,
+    "height": 231.12336319779465,
+    "width": 432.25361819434875,
+    "tabOrder": 3
   },
   "visual": {
     "visualType": "card",
@@ -25,14 +25,14 @@
                           "Entity": "FactFinance"
                         }
                       },
-                      "Property": "Margin, actual"
+                      "Property": "Margin, budget"
                     }
                   },
                   "Function": 0
                 }
               },
-              "queryRef": "Sum(FactFinance.Margin, actual)",
-              "nativeQueryRef": "Sum of Margin, actual"
+              "queryRef": "Sum(FactFinance.Margin, budget)",
+              "nativeQueryRef": "Sum of Margin, budget"
             }
           ]
         }
@@ -49,7 +49,7 @@
                         "Entity": "FactFinance"
                       }
                     },
-                    "Property": "Margin, actual"
+                    "Property": "Margin, budget"
                   }
                 },
                 "Function": 0
